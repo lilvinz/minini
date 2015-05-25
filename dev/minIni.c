@@ -683,6 +683,8 @@ int ini_puts(const TCHAR *Section, const TCHAR *Key, const TCHAR *Value, const T
           (void)ini_close(&wfp);
           return 1;
         } /* if */
+      #else
+        (void)tail;
       #endif
     } /* if */
     /* key not found, or different value & length -> proceed (but rewind the
