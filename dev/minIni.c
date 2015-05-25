@@ -70,13 +70,11 @@
 #elif defined(_MSC_VER)
   #pragma warning(disable: 4996)	/* for Microsoft Visual C/C++ */
 #endif
-
 #if !defined strnicmp && !defined PORTABLE_STRNICMP
   #if defined __LINUX__ || defined __FreeBSD__ || defined __OpenBSD__ || defined __APPLE__ || defined __NEWLIB__
     #define strnicmp  strncasecmp
   #endif
 #endif
-
 #if !defined _totupper
   #define _totupper toupper
 #endif
@@ -88,7 +86,6 @@
     #define INI_LINETERM    __T("\r\n")
   #endif
 #endif
-
 #if !defined INI_FILETYPE
   #error Missing definition for INI_FILETYPE.
 #endif
@@ -633,7 +630,7 @@ int ini_puts(const TCHAR *Section, const TCHAR *Key, const TCHAR *Value, const T
   INI_FILETYPE rfp;
   INI_FILETYPE wfp;
   INI_FILEPOS mark;
-  INI_FILEPOS head;
+  INI_FILEPOS head, tail;
   TCHAR *sp, *ep;
   TCHAR LocalBuffer[INI_BUFFERSIZE];
   int len, match, flag, cachelen;
